@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<!--影片：https://www.bilibili.com/video/BV15741177Eh?p=21&spm_id_from=pageDriver  -->
+
+<head>
+    <script src="/01-初認識/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{firstName+' '+lastName}}</h2>
+        <h2>{{firstName}} {{lastName}}</h2>
+        <!--這個是call methods中的 getFullName方法，所以未端要有「()」-->
+        <h2>{{getFullName()}}</h2>
+        <!--這個是使用computed中的東西，在computed中的就屬於屬性，所以未端不可使用「()」-->
+        <h2>{{fullName}}</h2>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                firstName: 'Lebron', lastName: 'James'
+            },
+            //計算屬性!!!
+            computed: {
+                fullName: function () {
+                    return this.firstName + '   ' + this.lastName
+                }
+            }
+            , methods: {
+                getFullName() {
+                    return this.firstName + '    ' + this.lastName
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+<head>
+
+
+</head>
+
+<body>
+    <div class="app">
+        <h2>當前計數.. {{counter}}</h2>
+        <!--
+        <button v-on:click="counter++">+</button>
+        <button v-on:click="counter--">-</button>
+        -->
+        <button v-on:click="add">+</button>
+        <button v-on:click="sub">-</button>
+    </div>
+    <!-- v-on 其實可以直接用 @ 取代…就是個語法糖-->
+
+    <script src="../vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '.app',
+            data: {
+                counter: 0
+            },
+            methods:{
+                add:function(){
+                    console.log("add被執行");
+                    this.counter++
+                },
+                sub:function(){
+                    console.log("sub被執行");
+                this.counter--
+                }
+            }
+
+        })
+
+    </script>
+
+</body>
+
+
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<!--https://www.bilibili.com/video/BV15741177Eh?p=70&spm_id_from=pageDriver-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <cpn>
+            <span solt="center">標題</span>
+            <span slot="left">我是左邊</span>
+        </cpn>
+        <cpn><button slot="left">返回</button></cpn>
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bind 綁定，可以用: -->
+    <!-- v-mode-->
+
+    <template id="cpn">
+        <div>
+            <solt><button>按鈕</button></solt>
+            <slot name="left"><span>左邊</span></slot>
+            <slot name="center"><span>中間</span></slot>
+            <slot name="right"><span>右邊</span></slot>
+        </div>
+    </template>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好阿'
+            },
+            components: {
+                cpn: {
+                    template: '#cpn'
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

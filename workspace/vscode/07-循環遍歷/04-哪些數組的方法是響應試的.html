@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<!--  https://www.bilibili.com/video/BV15741177Eh?p=39  第15分鐘有提到可變參數(三個「...」的使用)-->
+<!--splice在影片第20分鐘…有點難-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in letters">{{item}}</li>
+        </ul>
+
+        <button @click="btnClick">按鈕</button>
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bond 綁定，可以用: -->
+
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                letters: ['a', 'b', 'c', 'd', 'aaa']
+            },
+            methods: {
+                btnClick() {
+                    //1.push：下方的  .push是可以加在的陣列(響應)(可傳多個值)
+                    //this.letters.push('aaa');
+                    //this.letters.push('aaa','bbb','ccc');
+
+                    //2.通過索引值修改數組中的元素(響應)
+                    //this.letters[0] = ('bbbb');
+
+                    //2.pop()→從最後開始刪除(響應)
+                    //this.letters.pop();
+
+                    //3.shift()→刪除數組中的第一個元素(響應)
+                    //this.letters.shift();
+
+                    //4.unshift()→在數組最前面添加元素(響應)(可傳多個值)
+                    //this.letters.unshift('aaa','bbb','ccc');
+                    //this.letters.unshift();
+
+                    //5.splice()→
+                    //可做刪除元素、插入元素、替入元素
+                    //刪除元素：第二個參數傳入要你要刪除機個元素↓指從開始刪除所有的
+                               //this.letters.splice(start,setters.length-start);
+                    //替換元素：
+                               //this.letters.splice(1,3,'m','n','l','x');
+                    //插入元素：第二個數，傳入0，並且後面上要插入的元素
+                               //this.letters.splice(1,0,'x','y','z');
+                    //splice(1,1)
+                    //splice(start):
+                    //splice(start):
+                    
+                    
+                    //sort()指排序，這個是可以傳參數的
+                    //sort()
+                    //this.letters.sort();
+                    
+                    //reverse()指順序反轉
+                    //reverse()
+                    //this.letters.reverse();
+
+                    //注意：通過索引值修改數組中的元素時，是非響應式的，所以如果要變換，就要用splice
+
+                    //set(要修改的對像,索引值)
+                    Vue.set(this.letters,0,'bbbbb');
+
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

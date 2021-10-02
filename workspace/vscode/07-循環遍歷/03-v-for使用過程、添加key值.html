@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<!--  https://www.bilibili.com/video/BV15741177Eh?p=38&spm_id_from=pageDriver  -->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <!--可以看下影片，下面的key一定是唯一性且要跟展示{{}}裡面的元素是一一對應的-->
+            <li v-for="items in letters":key="items">{{items}}</li>
+        </ul>
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bond 綁定，可以用: -->
+
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                letters:['A','B','C','D','E']
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

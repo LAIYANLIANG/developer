@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+
+    <div id="app">
+        <div v-if="books.length">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>書籍名稱</th>
+                        <th>出版日期</th>
+                        <th>價格</th>
+                        <th>購買數量</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="(item,index) in books">
+                        <!--取得欄位資料遍歷方式方法一、用v-for-->
+                        <!--<td v-for="value in item">{{value}}</td> -->
+                        <!--取得欄位資料遍歷方式方法二，各自寫-->
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.date}}</td>
+                        <!--顯示的金額，自帶錢符號與最未二碼 方法一、用toFixed可以確保顯示二位小數直接寫，但之後每個都要-->
+                        <!-- <td>{{'$'+item.price.toFixed(2)}}</td> -->
+                        <!--顯示的金額，自帶錢符號與最未二碼 方法二，在main.js中另外寫一個method，在把值存進去-->
+                        <!-- <td>{{getFinalPrice(item.price)}}</td> -->
+                        <!--顯示的金額，自帶錢符號與最未二碼 方法三，main.js中寫另一個過濾器filter-->
+                        <td>{{item.price | showPrice}}</td>
+
+                        <td>
+
+                            <button @click="decrement(index)" v-bind:disabled="item.count <= 1">-</button>
+                            {{item.count}}
+                            <button @click="increment(index)">+</button>
+                        </td>
+                        <td>
+                            <button @click="removeHandle">移除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>總價{{totalPrice | showPrice}}</h2>
+        </div>
+        <h2 v-else>購物車為空</h2>
+
+    </div>
+    <script src="../vue.js"></script>
+    <script src="main.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>

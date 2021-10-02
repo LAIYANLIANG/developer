@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<!--https://www.bilibili.com/video/BV15741177Eh?p=57&spm_id_from=pageDriver-->
+<!--template模板的註冊方法-->
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+        <cpn></cpn>
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bond 綁定，可以用: -->
+    <!-- v-mode-->
+
+    <!--1.透過script標籤，注意：類型必需是text/x-template-->
+    <!-- <script type="text/x-template" id="cpn">
+<div>
+<h2>我是標題</h2>
+<p>我是內容</p>
+</div>
+</script> -->
+
+    <!--2.用template標籤-->
+    <template id="cpn">
+        <div>
+            <h2>我是標題2 </h2>
+            <p>我是內容2222</p>
+        </div>
+
+    </template>
+
+    <script>
+        //1.注冊一個全局組件
+        Vue.component('cpn', {
+            template: '#cpn',
+        })
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好阿'
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

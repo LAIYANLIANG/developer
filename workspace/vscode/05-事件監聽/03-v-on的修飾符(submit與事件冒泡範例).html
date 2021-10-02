@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<!--https://www.bilibili.com/video/BV15741177Eh?p=32-->
+<!--2分30秒，事件冒泡-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div @click="divClick">aaaa
+            <!--1、.stop修飾符的使用   @click.stop可以防止事件冒泡-->
+            <button @click.stop="btnClick">按鈕</button>
+        </div>
+        <!--2、prevent修飾符的使用-->
+        <form action="baidu">
+            <input type="submit" value="提交" @Click.prevent="submitClick">
+        </form>
+        <!--3、監聽個鍵般的鍵帽，這裡的例子是監聽enter鍵跳起來的時後-->
+        <input type="text" @keyup.enter="keyUp">
+
+        <!--4、once-->
+        <button @click.once="btn2Click">按鈕2</button>
+    </div>
+    <!-- v-on 其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bond 可以用: -->
+
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好阿'
+            },
+            methods: {
+                divClick() {
+                    console.log("我是div click");
+                },
+                btnClick() {
+                    console.log("我是btn click");
+                },
+                submitClick() {
+                    console.log("我是submitClick");
+                },
+                keyUp() {
+                    console.log("keyup");
+                },
+                btn2Click(){
+                    console.log("@click.once測試");
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

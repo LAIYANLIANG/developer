@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--1、事件調用的方法沒有參數-->
+            <button @click="btn1Click()">按紐1</button>
+            <button @click="btn1Click">按紐1</button>
+                <!--
+                2、在事件定義時，寫方法時省略了小如號，但是方法本身是需要一個參數的，這個時後，
+                vue會默認將瀏覽器生成的event事件對像作為參數傳入到方法
+            -->
+                <button @click="btn2Click(123)">按紐2</button>
+                <button @click="btn2Click()">按紐2</button>
+                <button @click="btn2Click">按紐2</button>
+                <!--3、方法定義時，我們需要event對象，同時又需要其他參數-->
+                <!--在調用方式，如何手動的獲取到瀏覽器參數的event對像：$event-->
+                <button @click="btn3Click('abc',$event)">按紐3</button>
+    </div>
+    <!-- v-on 其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bond 可以用: -->
+
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好阿'
+            },
+            methods: {
+                btn1Click() {
+                    console.log("btn1Click");
+                },
+                btn2Click(event) {
+                    console.log('----------', event);
+                },
+                btn3Click(abc, event) {
+                    console.log('--------' + abc +'____'+'btn3Click');
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

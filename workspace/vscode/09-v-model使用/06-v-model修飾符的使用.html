@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<!--https://www.bilibili.com/video/BV15741177Eh?p=51-->
+
+<!-- v-model其實是一個語法糖，他的背後本質上是包含兩個操作：v-bind綁定一個value屬性 跟 v-on指令給當前元素綁定的input事件
+(v-model參考影片： https://www.bilibili.com/video/BV15741177Eh?p=46&spm_id_from=pageDriver ) -->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+<a-icon>{{message}}</a-icon>
+        <!--1.修飾符：lazy-->
+        <!--效果是按下enter或是unfocuse的時後，才會顯示-->
+        <input type="text" name="message" id="message" v-model.lazy="message">
+        <h2>{{message}}</h2>
+
+        <!--2.修飾符：number-->
+        <!--因為v-model在處理時會自動把值全部換成str，所以要用number換成int類型-->
+        <input type="number" v-model.number.lazy="age">
+        <h2>{{age}}++{{typeof age}}</h2>
+
+        <!--3.修飾符：trim-->
+        <!--主要功能是去除頭尾空格-->
+        <input type="text" v-model="name">
+        <h2>{{name}}</h2>
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bond 綁定，可以用: -->
+
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好阿',
+                age:0,
+                name:''
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

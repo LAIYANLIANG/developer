@@ -1,0 +1,8 @@
+↓let+const VS var
+https://www.bilibili.com/video/BV15741177Eh?p=26
+
+↓ES5有閉包VS無閉包 (這個在教閉包耶~~)
+https://www.bilibili.com/video/BV15741177Eh?p=27
+
+↓const使用的注意事項
+https://www.bilibili.com/video/BV15741177Eh?p=28

@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<!-- v-model其實是一個語法糖，他的背後本質上是包含兩個操作：v-bind綁定一個value屬性 跟 v-on指令給當前元素綁定的input事件
+(v-model參考影片： https://www.bilibili.com/video/BV15741177Eh?p=46&spm_id_from=pageDriver ) -->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--1.checkbox單選框-->
+        <label for="agree">
+            <input type="checkbox" id="agree" v-model="isAgree">同意協議
+        </label>
+        <h2>你選擇的是：{{isAgree}}</h2>
+        <button :disabled="!isAgree">下一步</button>
+
+        <!--2.checkbox多選框-->
+        <label for="">
+            <input type="checkbox" value="藍球" v-model="hobbies">藍球
+            <input type="checkbox" value="足球" v-model="hobbies">足球
+            <input type="checkbox" value="乒乓球" v-model="hobbies">乒乓球
+            <input type="checkbox" value="羽球" v-model="hobbies">羽球
+            <h2>你的愛好是{{hobbies}}</h2>
+        </label>
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bond 綁定，可以用: -->
+
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好阿',
+                isAgree: false,//單選框
+                hobbies: []//多選框
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

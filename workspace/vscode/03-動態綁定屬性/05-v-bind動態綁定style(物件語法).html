@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="/01-初認識/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--  <h2 v-bind:style="{key(屬性名):value(屬性)}">{{message}}</h2> -->
+        <!--  <h2 v-bind:style="{font-size:}">{{message}}</h2> -->
+        <!--  這裡如果50px不加單引號，vue會把50px當作一個變量去找，故要加單引號讓他變一個值-->
+        <h2 v-bind:style="{fontSize:finalSize+'px',backgroundColor:finalColor}">
+            {{message}}
+        </h2>
+       <!--把style裡的東西變成一個物件，寫在methods中-->
+        <h2 v-bind:style="getStyles()">
+            {{message}}
+        </h2>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'how are u',
+                finalSize:100,
+                finalColor:'red'
+            },
+            methods:{
+                getStyles:function(){
+                    return {fontSize:this.finalSize+'px',backgroundColor:this.finalColor}
+                }
+            }
+
+        }
+        )
+
+
+    </script>
+</body>
+
+</html>

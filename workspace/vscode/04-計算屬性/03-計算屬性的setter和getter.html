@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>{{fullName}}</h2>
+    </div>
+    <!-- v-on 其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bond 可以用: -->
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                firstName: 'kobe',
+                lastName: 'brian'
+            },
+            computed: {
+                /* fullName: function () {
+                    return this.firstName + '  ' + this.lastName
+                } */
+
+                /* 上面的是簡寫，單純只有get方法，原因參下*/
+
+                /*  下面的是完整的set與get方法，但計算屬性通常不給其他人用set，只開放get，又稱只讀屬性*/
+
+                fullName: {
+                    set: function (newValue) {
+                        console.log("-------" + newValue);
+                        const names = newValue.split(' ');
+                        this.firstName = names[0];
+                        this.lastName = names[1];
+                    },
+                    get: function () {
+                        return this.firstName + "  " + this.lastName
+                    }
+                }
+
+                /* 因為通常只有讀，所以有另外的簡化寫法，可以變成下面這樣： */
+                /* fullName: function () {
+                    return this.firstName + '  ' + this.lastName
+                } */   /* 然後就變成computed第一個說的簡寫了 */
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

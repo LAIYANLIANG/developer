@@ -1,0 +1,10 @@
+index.html 放html程式碼
+main.js 放js程式碼
+style.css 放css程式碼
+在使用vuejs以前大都是用這個方式在編輯
+
+href→css的格式的
+src→外觀畫面的
+
+https://www.bilibili.com/video/BV15741177Eh?p=42&spm_id_from=pageDriver
+第四分鐘有講過濾器

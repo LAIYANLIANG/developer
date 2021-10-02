@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+
+<head>
+    <script src="/01-初認識/vue.js"></script>
+</head>
+
+<body>
+    <div>
+
+    </div>
+
+    <script>
+        let people = [
+            { name: '小明', money: 500 },
+            { name: '漂亮阿姐', money: 3000 },
+            { name: '杰倫', money: 400 },
+            { name: '小明222', money: 700 }
+        ];
+
+                for(let i=0;i<people.length;i++){
+                    let person=people[i];
+                    console.log(person.name+'  '+person.money);
+                };
+
+
+        people.forEach(person => {
+            console.log(person.name + '  箭頭函數  ' + person.money)
+        }
+        );
+
+
+    </script>
+</body>
+
+</html>

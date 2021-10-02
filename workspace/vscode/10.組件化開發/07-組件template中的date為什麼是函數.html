@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<!-- https://www.bilibili.com/video/BV15741177Eh?p=58&spm_id_from=pageDriver -->
+<!--過程很是一個動態，要重覆參考上面的影片。主要是每個component都有自己的生命週期與物件-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+
+        <!--組件實例-->
+        <cpn></cpn>
+        {{message}}
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bond 綁定，可以用: -->
+    <!-- v-mode-->
+
+
+    <template id="cpn1">
+        <div>我是個組件
+            <h2>當前計數：{{counter}}</h2>
+            <button @click="increment">+</button>
+            <button @click="discrement">-</button>
+        </div>
+    </template>
+
+<script>
+    alert('xss')
+</script>
+    <script>
+        //1.注冊組件
+        Vue.component('cpn', {
+            template: '#cpn1',
+            data() {
+                return {
+                    counter: 0
+                }
+            },
+            methods: {
+                increment() {
+                    this.counter++
+                },
+                discrement() {
+                    this.counter--
+                }
+            },
+        })
+
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好阿'
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

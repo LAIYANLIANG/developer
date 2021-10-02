@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1、變量作用域：變量在什麼範圍是可用的
+        {
+            var name = 'why';
+            console.log(name);
+        }
+        console.log(name + '__外部');
+        //2、沒有區域做用域引起的問題
+        var func;
+        if (true) {
+            var name = 'why';
+        }
+        console.log(name);
+
+    </script>
+</body>
+
+</html>

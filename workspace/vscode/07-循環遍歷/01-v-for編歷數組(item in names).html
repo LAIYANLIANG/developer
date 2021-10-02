@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../vue.js"></script>
+</head>
+<!--  https://www.bilibili.com/video/BV15741177Eh?p=37&spm_id_from=pageDriver  -->
+<body>
+    <div id="app">
+        <!--1.在遍歷的過程中，沒有使用索引值(下標值)-->
+        <ul>
+            <li v-for="item in names">{{item}}</li>
+        </ul>
+        <!--2.在遍歷的過程中，獲取索引值-->
+        <ul>
+            <li v-for="(item,index) in names">
+                {{index+1}}.{{item}}
+            </li>
+        </ul>
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bond 綁定，可以用: -->
+
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                names: ['why', 'kobe', 'james', 'curry']
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

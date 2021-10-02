@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<!--  https://www.bilibili.com/video/BV15741177Eh?p=59&spm_id_from=pageDriver -->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+
+<body>
+    <div id="app">
+        <!--傳變量過來，一定要用v-bind!!!-->
+        <!--顯示順序是依模板的順序-->
+        <cpn :ctest='test' :cmovies='movies' :cmessage='message'></cpn>
+        <!--如果沒用v-bind則會直接示為一個單一值做回傳，而無法用vue的方式溝通-->
+        <!-- <cpn cmovies='movies' cmessage='message'></cpn> -->
+
+        <cpn :cmessage="message" :cmovies="movies"></cpn>
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bind 綁定，可以用: -->
+    <!-- v-mode-->
+
+    <!--1.設立模板-->
+    <template id="cpn">
+        <div>
+            <ul>
+                <li v-for="item in cmovies">{{item}}</li>
+            </ul>
+            <p>{{cmovies}}</p>
+            <h2>{{cmessage}}</h2>
+            <h3>{{ctest}}</h3>
+        </div>
+    </template>
+
+
+    <script src="../vue.js"></script>
+    <script>
+        //父傳子：props
+        //2.註冊
+        const cpn = {
+            template: '#cpn',
+            //透過寫陣列的方式傳遞
+            /*  props: ['cmovies', 'cmessage', 'ctest'], */
+            //props加入型別判斷，可做驗證，影片第25分鐘
+            props: {
+                //1.類型的限制，直接寫
+                /* cmovies:Array,
+                cmessage:String, */
+
+                //2.提供一些默認值，用物件的方式表達
+                cmessage: {
+                    type: String,
+                    //cmessage的默認值為aaaaa
+                    default: 'aaaaa',
+                    //cmessage中的required指的是，cmessage是否為必傳值，是true的話為必傳
+                    required: true
+                },
+                //類型是對像或是數組時，默認值必須是一個函數
+                cmovies: {
+                    type: Array,
+                   /*  default: []//約vue2.5.17以上，這樣寫就會錯 */
+                   default(){
+                       return[]
+                   }
+                }
+            },
+            data() {
+                return {}
+            },
+            methods: {
+
+            }
+        }
+        //3.在root中的component「s」中註冊使用
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好阿',
+                movies: ['海1', '海2', '海3', '海4'],
+                test: '我是一個測試'
+            },
+            components: {
+                cpn
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

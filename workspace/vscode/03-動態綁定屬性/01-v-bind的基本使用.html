@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+       <!--  <img v-bind:src="imgURL" alt="">
+        <a v-bind:href="aHref">google頁面</a> -->
+        <!--語法糖的寫法v-bind改用符號「:」 取代-->
+        <img :src="imgURL" alt="">
+        <a :href="aHref">google頁面</a>
+
+    </div>
+
+    <script src="/01-初認識/vue.js"></script>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: 'how are u',
+                imgURL: 'https://www.hotelscombined.com.tw/news/wp-content/uploads/sites/316/2019/03/Palawan.jpg',
+                aHref: 'http://google.com.tw/'
+            }
+
+        }
+        )
+
+
+    </script>
+</body>
+
+</html>

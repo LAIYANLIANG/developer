@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<!--影片：https://www.bilibili.com/video/BV15741177Eh?p=21&spm_id_from=pageDriver  -->
+
+<head>
+    <script src="/01-初認識/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <h2>總價格:{{totalPrice}}</h2>
+    </div>
+
+    <script>
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                books: [
+                    { id: 110, name: '書1', price: 119 },
+                    { id: 111, name: '書2', price: 105 },
+                    { id: 112, name: '書3', price: 98 },
+                    { id: 113, name: '書4', price: 87 }
+                ]
+            },
+            computed: {
+                totalPrice: function () {
+                    let result = 0;
+
+                    for (let i = 0; i < this.books.length; i++) {
+                        console.log('第：' + i + ' ' + '加總' + result);
+                        result += this.books[i].price
+                    }
+                    return result;
+
+/* ES6的：
+                    for (let i in this.books) {
+                        this.books[i]
+                    }
+
+                    for(let book of this.books){
+
+                    } */
+                }
+
+            }
+        })
+    </script>
+</body>
+
+</html>

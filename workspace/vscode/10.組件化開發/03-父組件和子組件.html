@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<!-- https://www.bilibili.com/video/BV15741177Eh?p=55&spm_id_from=pageDriver  -->
+<!-- 組件的引用，從root>父>子 -->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+        <cpn2></cpn2>
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bond 綁定，可以用: -->
+
+
+    <script>
+        //1.創為第一個組件構造器(子組件)
+        const cpnC1 = Vue.extend({
+            template:
+                <div>
+                    <h2>我是標題1</h2>
+                    <p>我是內容一</p>
+                </div>
+        })
+
+        //2.創建第二個組件構造器(父組件)
+        const cpnC2 = Vue.extend({
+            template:
+                <div>
+                    <h2>我是標題2</h2>
+                    <p>我是內容二</p>
+                    <cpn1></cpn1>
+                </div>,
+            //透過cpnC2的component把cpnC1註冊進來
+            component: {
+                cpn1: cpnC1
+            }
+        })
+        //root組件(根組件)
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好阿'
+            },
+            component: {
+                //透過app的component把conC2註冊進來
+                cpn2: cpnC2
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

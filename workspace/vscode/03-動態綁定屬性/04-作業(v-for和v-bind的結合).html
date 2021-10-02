@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        .fontColor {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+
+        <ul>
+            <li v-on:click="butClick(index)" v-bind:class="{fontColor:index==num}" v-for="(item2,index) in acg">
+                {{index}}--{{item2}}
+            </li>
+            <!--上下二個li是相同的，差在v-bind用語法糖-->
+            <!--
+            <li v-on:click="butClick(index)" :class="{fontColor:index==num}" v-for="(item2,index) in acg">
+                {{index}}--{{item2}}
+            </li>
+
+            -->
+        </ul>
+    </div>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                acg: ['海王', '海爾兄弟', '火影忍者', '進擊ㄟ大人'],
+                num: 0
+            },
+            methods: {
+                butClick: function (index) {
+                    this.num = index;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

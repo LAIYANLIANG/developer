@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+    <label>Password:</label>
+    <input type="password" id="idPwd" size="6" />
+    <span id="idsp"></span>
+    <div>
+        <span id="idsp2"></span>
+    </div>
+    <!--按下時，onclick會呼叫chkAge物件-->
+    <input type="button" value="checkPassword" onclick="chkAge().chkAge" />
+    <script>
+        function chkAge() {
+            var thesp = document.getElementById("idsp");
+            var thesp2 = document.getElementById("idsp2");
+            let theAgeObj = document.getElementById("idPwd");
+            let theAge = theAgeObj.value;
+
+            function chkAge2(theAge) {
+                if (theAge < 10) {
+                    thesp.innerHTML = "小於10噢";
+                } else {
+                    thesp.innerHTML = "大於10";
+                }
+
+            }
+
+            if (theAge == "") {
+                thesp.innerHTML = ("你應該要輸入值的");
+            } else {
+                thesp2.innerHTML = chkAge2(theAge);
+                thesp.innerHTML = theAge + "twice add";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

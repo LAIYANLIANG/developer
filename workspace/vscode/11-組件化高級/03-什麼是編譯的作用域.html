@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<!--https://www.bilibili.com/video/BV15741177Eh?p=71&spm_id_from=pageDriver-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 這個會吃到true -->
+        <cpn v-show="isShow"></cpn>
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bind 綁定，可以用: -->
+    <!-- v-mode-->
+    <template id="cpn">
+        <div>
+            <h2>我是子組件</h2>
+            <p>我是內容</p>
+            <!-- 這個會吃到false -->
+            <button v-show="isShow">按鈕</button>
+        </div>
+    </template>
+
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好阿',
+                isShow:true
+            }, 
+            components: {
+                cpn:{
+                    template:'#cpn',
+                    data(){
+                        return{
+                            isShow:false
+                        }
+                    }
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

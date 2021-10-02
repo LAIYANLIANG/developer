@@ -1,0 +1,32 @@
+https://www.bilibili.com/video/BV15741177Eh?p=19
+上述網址，第02:16分鐘，有說明到.vue是什麼、功用
+.vue是「組件」的副檔名，組件是方便其他人可以重覆使用
+
+https://www.bilibili.com/video/BV15741177Eh?p=21&spm_id_from=pageDriver
+上述網址，有說明計算屬性，也有說明以下架構為vue內定的物件名稱，強制相同!!
+const app=new Vue({
+    el:          功能：連接id或class,
+    data:{}      功能：放資料的(類似table？),
+    computed:{}  功能：放計算屬性的，可以使用function(){}做更多的變化!!,
+    methods:{}   功能：放方法的
+})
+
+
+ES6的語法：filter/map/reduce
+
+v-model其實是一個語法糖，他的背後本質上是包含兩個操作：v-bind綁定一個value屬性 跟 v-on指令給當前元素綁定的input事件
+(v-model參考影片： https://www.bilibili.com/video/BV15741177Eh?p=46&spm_id_from=pageDriver )
+
+
+往後端提交的時後，都是以name屬性為key往後傳!!!可參下影片第三分鐘
+https://www.bilibili.com/video/BV15741177Eh?p=47&spm_id_from=pageDriver
+
+
+父子組件的通信，父傳子
+https://www.bilibili.com/video/BV15741177Eh?p=59&spm_id_from=pageDriver
+第10分鐘：
+1、props -> properties(屬性)
+2、通過事件向父組件送消息
+
+https://www.bilibili.com/video/BV15741177Eh?p=63&spm_id_from=pageDriver
+期礎總復習

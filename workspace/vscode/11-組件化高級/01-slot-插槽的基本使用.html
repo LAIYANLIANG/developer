@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<!--https://www.bilibili.com/video/BV15741177Eh?p=69&spm_id_from=pageDriver-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+<!--
+1、插槽的基本使用<slot></slot>
+2、插槽的默認值<slot><button>按鈕</button></slot>
+3、如果有多個值，同時放入到組件進行替換力，一起做為替換元素
+-->
+<body>
+    <div id="app">
+        <cpn><button>案例</button></cpn>
+        <cpn><span>i am span</span></cpn>
+        <cpn><i>i am i</i></cpn>
+        <cpn><button>i am btn</button></cpn>
+        <cpn></cpn>
+        <cpn>
+            <div>
+                <p>p2</p>
+                div2
+                <i>
+                    i2
+                </i>
+            </div>
+        </cpn>
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bind 綁定，可以用: -->
+    <!-- v-mode-->
+
+    <template id='cpn'>
+        <div>
+            <h2>我是個組件h2</h2>
+            <p>我是組件p</p>
+            <!--solt標裡面的button，將會是默認值-->
+            <slot><button>按鈕</button></slot>
+        </div>
+    </template>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好阿'
+            },
+            components: {
+                cpn: {
+                    template: '#cpn'
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

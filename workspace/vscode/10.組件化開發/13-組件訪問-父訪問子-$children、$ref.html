@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<!--https://www.bilibili.com/video/BV15741177Eh?p=67&spm_id_from=pageDriver-->
+<!-- $refs 、ref很常用，$children 用很少!!-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+        <cpn></cpn>
+        <cpn></cpn>
+        <cpn ref="aaa"></cpn>
+        <button @click="btnClick">按鈕</button>
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bind 綁定，可以用: -->
+    <!-- v-mode-->
+
+    <template id="cpn">
+        <div>
+            我是子組件
+        </div>
+    </template>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好阿'
+            },
+            methods: {
+                btnClick() {
+                    /* 1.$children 
+                    console.log(this.$children);
+                    this.$children[0].showMessage();
+                    for (let c of this.$children) {
+                        console.log(c.name)
+                        c.showMessage();
+                    } */
+                    // 2.$refs  這個很長用!!，$ref默認是一個空的對像，必需要在上面使用組件的地方，加上ref才能用 ex：<cpn ref="aaa"></cpn>
+                    console.log(this.$refs.aaa.name);
+                }
+            },
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    data() {
+                        return {
+                            name: '我是子組件的name'
+                        }
+                    },
+                    methods: {
+                        showMessage() {
+                            console.log("列出showMessage");
+                        }
+                    }
+
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

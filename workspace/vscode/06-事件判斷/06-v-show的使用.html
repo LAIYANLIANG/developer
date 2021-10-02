@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+<!--  https://www.bilibili.com/video/BV15741177Eh?p=36&spm_id_from=pageDriver  -->
+<!--v-show 主要功用：顯示還是不顯示-->
+
+<body>
+    <div id="app">
+        <!--v-if 是指，當條件為false時，包含指令的元性，根本不會存在dom中-->
+        <h2 v-if="isShow" id="aaa">{{message}}</h2>
+        <!--v-show 當條件為false時，v-show只是給我們的元素添加一個行內樣式-->
+        <h2 v-show="isShow" id="bbb">{{message}}</h2>
+    </div>
+    <!-- v-on 其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bond 可以用: -->
+
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好阿',
+                isShow: true
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

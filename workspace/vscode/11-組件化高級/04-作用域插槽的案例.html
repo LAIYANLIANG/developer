@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<!--https://www.bilibili.com/video/BV15741177Eh?p=72&spm_id_from=pageDriver-->
+<!-- 父組件獲取子組件 -->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <cpn></cpn>
+        <!--目的是獲取子組件中的pLanguages-->
+        <cpn>
+            <template slot-scope="slot">
+                <!-- <span v-for="item in slot.data">{{item}}-</span> -->
+                <span v-for="item in slot.data.join('  _  ')">{{item}}-</span>
+                <br>
+                <span>{{slot.data.join(' - ')}}</span>
+            </template>0
+        </cpn>
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bind 綁定，可以用: -->
+    <!-- v-mode-->
+
+    <template id="cpn">
+        <div>
+            <!-- 在slot中，放入:data="pLanguages"，讓上面的父組件可以使用 -->
+            <slot :data="pLanguages">
+                <ul>
+                    <li v-for="a in pLanguages">
+                        {{a}}
+                    </li>
+                </ul>
+            </slot>
+        </div>
+    </template>
+
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好阿'
+            },
+            components: {
+                cpn: {
+                    template: '#cpn',
+                    data() {
+                        return {
+                            pLanguages: ["javascript", "c++", "java", "c#", "go"]
+                        }
+                    }/* ,
+                    created(){
+                        this.pLanguages.join('  _ ')
+                    } */
+                }
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

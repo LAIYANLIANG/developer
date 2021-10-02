@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<!--  https://www.bilibili.com/video/BV15741177Eh?p=60&spm_id_from=pageDriver  -->
+<!--  v-bind 不支持駝峰!!!所以cInfo要改成 c-info…這樣子(影片第6分鐘)-->
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!--  v-bind 不支持駝峰!!!所以cInfo要改成 c-info…這樣子-->
+        <!-- <cpn :cinfo="info" :childMyMessage="message"></cpn> -->
+        <cpn :cinfo="info" :child-my-message="message"></cpn>
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bind 綁定，可以用: -->
+    <!-- v-mode-->
+
+
+    <template id=cpn>
+        <!--如果有多個{{}} 要引用，就一定要用div做根之間的間格!!-->
+        <div>
+            <h2>{{cinfo}}</h2>
+            <h2>{{childMyMessage}}</h2>
+        </div>
+    </template>
+
+
+    <script>
+        const cpn = {
+            template: '#cpn',
+            props: {
+                cinfo: {
+                    type: Object,
+                    default() {
+                        return {}
+                    }
+                },
+                childMyMessage: {
+                    type: String,
+                    default: ''
+                }
+            }
+        }
+
+        const app = new Vue({
+            el: '#app',
+            data: {
+                info: {
+                    name: 'why',
+                    age: 18,
+                    height: 1.88
+                }, message: 'aaaa'
+            },
+            components: {
+                cpn
+            }
+        })
+
+    </script>
+
+</body>
+
+
+</html>

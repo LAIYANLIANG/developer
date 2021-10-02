@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<!--https://www.bilibili.com/video/BV15741177Eh?p=61-->
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/vue.js"></script>
+</head>
+
+<body>
+    <!--父組件模位-->
+    <div id="app">
+        <!--在模版的使用情況下，不能使用駝峰!!!@itemClick-->
+        <!--b.將下方的自定義事件，賦給v-on做監聽!!!-->
+        <cpn @item-click="cpnClick"></cpn>
+    </div>
+    <!-- v-on 監聽，其實可以直接用 @ 取代…就是個語法糖-->
+    <!-- v-bind 綁定，可以用: -->
+    <!-- v-mode-->
+
+    <!--子組件模位-->
+    <template id="cpn">
+        <div>
+            <button v-for="item in categories" @click="btnClick(item)">
+                {{item.name}}
+            </button>
+        </div>
+    </template>
+
+
+    <script>
+        //1.子組件
+        const cpn = {
+            template: '#cpn',
+            data() {
+                return {
+                    categories: [
+                        { id: 'aaa', name: '熱門推薦' },
+                        { id: 'bbb', name: '手通數碼' },
+                        { id: 'ccc', name: '家用家電' },
+                        { id: 'ddd', name: '電腦辦公' }
+                    ]
+                }
+            }, methods: {
+                btnClick(item) {
+                    console.log(item);
+                    //a.子組件發射事件：自定義事件，這裡反回給第14行用
+                    this.$emit('item-click',item)
+                }
+            }
+        }
+        //2.父組件
+        const app = new Vue({
+            el: '#app',
+            data: {
+                message: '你好阿'
+            }, components: {
+                cpn
+            },methods: {
+                //父模板接收子組傳來的item-click事件，並默認傳回來的參數代數為item
+                cpnClick(item){
+                    console.log('testitem',item);
+                }
+            },
+        })
+
+    </script>
+
+</body>
+
+
+</html>
