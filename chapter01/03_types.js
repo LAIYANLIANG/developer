@@ -1,42 +1,34 @@
 //https://www.bilibili.com/video/BV1Xy4y1v7S2?p=4&spm_id_from=pageDriver
 //也可以直接使用字面量進行類型聲明
-
-let a: 10;
+var a;
 a = 10;
-
 //可以使用 「|」 來連接多個類型!!讓他限制值的屬性!!!(又稱連合類型!!)
-let b: "male" | "false";
+var b;
 b = "false";
 b = "male";
 //b="hello"  //error
-
-let c: boolean | string;
+var c;
 c = false;
-c = "abc"
+c = "abc";
 //c=123 //error
-
-
 //any表示的是任意類型，一個變量設置類型為any後，想當於變量關閉了ts的類型檢測，會變的跟js一樣…這個有宣告的，又稱顯示
 //使用ts時，不建議使用any類型…
-let d: any;//如果直接寫：let d; 這種不指定類型也可以，財ts解析器會自動判斷變量的類型為any(隱式的any...這種就比隱示的還難找…)
+var d; //如果直接寫：let d; 這種不指定類型也可以，財ts解析器會自動判斷變量的類型為any(隱式的any...這種就比隱示的還難找…)
 d = 10;
 d = 'hello';
 d = true;
-
 //unknown表示未知類型的值
-let e: unknown;
+var e;
 e = 10;
 e = "hello";
 e = true;
-
-let s: string
+var s;
 //d的類型是any，它可以賦值給任意變量
 //s=d;
 e = 'hello';
 //unknown是不可以賦值給其他類型的!!!
 //unknown類型的變量，不能直接賦值給其他變量!!!
 //s = e; //這個會error!!!
-
 //除非有自己多做一個類型判斷：
 //判斷方法1：typeof
 if (typeof e === 'string') {
@@ -47,18 +39,15 @@ if (typeof e === 'string') {
  * 語法：
  * 變量as類型
  * <類型>變量
- * 
+ *
  */
-s = e as string;
-s = <string>e;
-
+s = e;
+s = e;
 //void用來表示空，以函數為例，就表示沒有返回值的函數
-function fn(): void {
+function fn() {
     return null;
 }
-
-
 //never 表示永遠不會返回結果
-function fn2(): never {
-throw new Error('報錯了!!');
+function fn2() {
+    throw new Error('報錯了!!');
 }
