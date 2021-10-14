@@ -1,0 +1,23 @@
+{
+    /*
+https://www.bilibili.com/video/BV1Xy4y1v7S2?p=6
+
+tsconfig.json 是ts編譯器的配置，ts編譯器可以根據它的信息來對應配置
+
+"include" 用來指定哪些ts文件需要被編譯
+"exclude" 不需要被編譯的文件目錄
+          exclude的默認值：["node_modules","bower_components","jspm_packages"]
+"extends" 繼承
+"files" 文件夾，指被編譯文件的列表，只有需要編譯的文件少時才會用到
+*/
+    "include": [
+        /*
+    路徑--→ ** 指任意目錄
+             * 指任意檔案
+    */
+        "./src/**/*"
+    ],
+    "exclude": [
+        "./src/hello/**/*"
+    ]
+}
