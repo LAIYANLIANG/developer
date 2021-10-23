@@ -1,0 +1,10 @@
+{
+    "compilerOptions": {
+        //target用來指定ts被編譯的ES版本
+        "target": "es2015",
+        //module 來指定要使用的模塊化的規範
+        "module": "es2015",
+        "strict": true
+    }
+
+}

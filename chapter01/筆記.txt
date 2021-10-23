@@ -1,0 +1,25 @@
+安裝typescript
+npm i-g typescript
+
+查看node版本與是否安裝
+node -v
+
+tsc的使用：(要先加一個tsconfig.json)
+tsc app.ts   
+ts編碼轉換js 的watch開啟
+tsc -w
+
+
+https://www.bilibili.com/video/BV1Xy4y1v7S2?p=10&spm_id_from=pageDriver
+
+webpack的使用步驟1，初始化項目，並產生包的管理「package.json」
+(package.json的功能就是管理package中有哪些依賴、命令…)
+npm init -y
+
+webpack的使用步驟2，安裝依賴
+package.json好了之後，就可以裝webpack了
+npm i -d webpack webpack-cli typescript ts-loader
+
+webpack的使用步驟3，編寫webpack.json的配置文件
+webpack的使用步驟4，編寫tsconfig.json的配置文件
+webpack的使用步驟5，修改package.json文件，在該文件中加入build屬性

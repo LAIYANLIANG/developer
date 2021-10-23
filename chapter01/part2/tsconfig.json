@@ -2,6 +2,11 @@
     /*
 https://www.bilibili.com/video/BV1Xy4y1v7S2?p=6
 
+設置選項說明：
+https://www.bilibili.com/video/BV1Xy4y1v7S2?p=8&spm_id_from=pageDriver
+編譯檢查屬性設置(語法檢測)：
+https://www.bilibili.com/video/BV1Xy4y1v7S2?p=9&spm_id_from=pageDriver
+
 tsconfig.json 是ts編譯器的配置，ts編譯器可以根據它的信息來對應配置
 
 "include" 用來指定哪些ts文件需要被編譯
@@ -17,7 +22,44 @@ tsconfig.json 是ts編譯器的配置，ts編譯器可以根據它的信息來�
     */
         "./src/**/*"
     ],
-    "exclude": [
-        "./src/hello/**/*"
-    ]
+    //    "exclude": [
+    //        "./src/hello/**/*"
+    //    ]
+    /*
+      compilerOptions 編譯器的選項，這裡面有很多子選項!!
+    */
+    "compilerOptions": {
+        //target用來指定ts被編譯的ES版本
+        "target": "es2015",
+        //module 來指定要使用的模塊化的規範
+        "module": "es2015",
+        //lib 用來指定項目中要使用的庫，通這不去調整，除了程式不是在瀏覽器中使用
+        /* "lib":{
+
+    } */
+        //outDir 用來指定編譯後的文件所在的目錄
+        //"outDir":"./dist",
+        //設置outFil後，所有的全壁作用域中的代碼會合併到同一個文件中
+        //"outFile":"./dist/app.js"
+        //allowJs指是否對js文件進行編譯，默認是false
+        "allowJs": false,
+        //chekjJs是否檢查js代碼是否符合語法規範，默認是true
+        "checkJs": true,
+        //removeComments，指ts編譯成js的時後，是否將註釋一起帶過去
+        "removeComments": true,
+        //noEmit，指不生產編譯後的文件
+        "noEmit": false,
+        //noEmitOnError，指ts編譯生成ts文件時，如果有錯誤，則不生成js文件(語法檢測)
+        "noEmitOnError": true,
+        //strict，嚴格檢查總開關。這個一開，所有嚴格檢查就會全開!!所以下面的嚴格檢查設置細項置就可以不用自己一個一個去開!!!通常都直接放這個，直接開true
+        "strict": true,
+        //alwaysStrict，用來設編譯後的文件是否使用嚴格模式，默認為false(語法檢測)
+        "alwaysStrict": true,
+        //noImplicitAny，(語法檢測)，指不允許隱式的any類型
+        "noImplicitAny": true,
+        //noImplicitThis(語法檢測)，指不允語不明確的類型的this
+        "noImplicitThis": true,
+        //strictNullChecks嚴格的檢查空值!!
+        "strictNullChecks": true
+    },
 }
