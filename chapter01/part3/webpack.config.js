@@ -14,7 +14,8 @@ module.exports = {
         //指定打包文件的目錄
         //寫path:"./path"這種的也行
         path: path.resolve(__dirname, 'dist'),
-        __filename: "bundle.js"
+        //打包後文件的文件
+        filename: "bundle.js"
     },
     //指定webpack打包時要使用的模塊
     module: {

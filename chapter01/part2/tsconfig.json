@@ -42,7 +42,7 @@ tsconfig.json 是ts編譯器的配置，ts編譯器可以根據它的信息來�
         //設置outFil後，所有的全壁作用域中的代碼會合併到同一個文件中
         //"outFile":"./dist/app.js"
         //allowJs指是否對js文件進行編譯，默認是false
-        "allowJs": false,
+        "allowJs": true,
         //chekjJs是否檢查js代碼是否符合語法規範，默認是true
         "checkJs": true,
         //removeComments，指ts編譯成js的時後，是否將註釋一起帶過去
@@ -61,5 +61,5 @@ tsconfig.json 是ts編譯器的配置，ts編譯器可以根據它的信息來�
         "noImplicitThis": true,
         //strictNullChecks嚴格的檢查空值!!
         "strictNullChecks": true
-    },
+    }
 }
